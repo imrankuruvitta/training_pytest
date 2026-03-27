@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/config/config.py">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/config/config.py" />
+              <option name="updatedContent" value="from config.logger import get_logger&#10;&#10;logger = get_logger(__name__)&#10;&#10;BASE_URL = &quot;https://jsonplaceholder.typicode.com&quot;&#10;logger.debug(f&quot;Configuration loaded - BASE_URL: {BASE_URL}&quot;)&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/config/logger.py">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/config/logger.py" />
+              <option name="updatedContent" value="import logging&#10;import os&#10;from datetime import datetime&#10;&#10;# Create logs directory if it doesn't exist&#10;LOGS_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), &quot;logs&quot;)&#10;os.makedirs(LOGS_DIR, exist_ok=True)&#10;&#10;# Log file path with timestamp&#10;log_file = os.path.join(LOGS_DIR, f&quot;test_run_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log&quot;)&#10;&#10;# Configure logging&#10;logging.basicConfig(&#10;    level=logging.DEBUG,&#10;    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',&#10;    handlers=[&#10;        logging.FileHandler(log_file),&#10;        logging.StreamHandler()&#10;    ]&#10;)&#10;&#10;def get_logger(name):&#10;    &quot;&quot;&quot;Get a logger instance for a specific module.&quot;&quot;&quot;&#10;    return logging.getLogger(name)&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/conftest.py">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/conftest.py" />
+              <option name="updatedContent" value="import pytest&#10;from config.config import BASE_URL&#10;from config.logger import get_logger&#10;&#10;logger = get_logger(__name__)&#10;&#10;@pytest.fixture(scope=&quot;session&quot;)&#10;def base_url():&#10;    logger.info(&quot;Initializing base_url fixture&quot;)&#10;    logger.info(f&quot;Base URL: {BASE_URL}&quot;)&#10;    return BASE_URL&#10;&#10;@pytest.fixture(autouse=True)&#10;def log_test_info(request):&#10;    &quot;&quot;&quot;Log test information at the start and end of each test.&quot;&quot;&quot;&#10;    logger.info(f&quot;Starting test: {request.node.name}&quot;)&#10;    yield&#10;    logger.info(f&quot;Completed test: {request.node.name}&quot;)&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/requirements.txt">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/requirements.txt" />
+              <option name="updatedContent" value="pytest&#10;requests&#10;pytest-html&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/tests/test_users_api.py">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/tests/test_users_api.py" />
+              <option name="updatedContent" value="import pytest&#10;from utils.base_api import get_request, post_request&#10;from config.logger import get_logger&#10;&#10;logger = get_logger(__name__)&#10;&#10;&#10;@pytest.mark.smoke&#10;def test_get_users(base_url):&#10;    logger.info(&quot;Test: test_get_users - fetching a post from JSONPlaceholder&quot;)&#10;    url = f&quot;{base_url}/posts/1&quot;&#10;    logger.debug(f&quot;URL: {url}&quot;)&#10;&#10;    response = get_request(url)&#10;&#10;    assert response.status_code == 200&#10;    assert &quot;id&quot; in response.json()&#10;    assert len(response.json()[&quot;title&quot;]) &gt; 0&#10;    logger.info(&quot;✓ test_get_users passed all assertions&quot;)&#10;&#10;&#10;@pytest.mark.regression&#10;def test_create_user(base_url):&#10;    logger.info(&quot;Test: test_create_user - creating a new post&quot;)&#10;    url = f&quot;{base_url}/posts&quot;&#10;    logger.debug(f&quot;URL: {url}&quot;)&#10;&#10;    payload = {&quot;title&quot;:&quot;foo&quot;,&quot;body&quot;:&quot;bar&quot;,&quot;userId&quot;:1}&#10;    logger.info(f&quot;Payload: {payload}&quot;)&#10;&#10;    response = post_request(url, payload)&#10;    resp_json = response.json()&#10;&#10;    assert response.status_code == 201&#10;    assert resp_json[&quot;title&quot;] == &quot;foo&quot;&#10;    assert resp_json[&quot;body&quot;] == &quot;bar&quot;&#10;    logger.info(&quot;✓ test_create_user passed all assertions&quot;)&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/utils/base_api.py">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/utils/base_api.py" />
+              <option name="updatedContent" value="import requests&#10;from config.logger import get_logger&#10;&#10;logger = get_logger(__name__)&#10;&#10;def get_request(url, headers=None, params=None):&#10;    logger.info(f&quot;Sending GET request to: {url}&quot;)&#10;    logger.debug(f&quot;Headers: {headers}, Params: {params}&quot;)&#10;    response = requests.get(url, headers=headers, params=params, verify=False)&#10;    logger.info(f&quot;GET request completed&quot;)&#10;    return response&#10;&#10;def post_request(url, payload=None, headers=None):&#10;    logger.info(f&quot;Sending POST request to: {url}&quot;)&#10;    logger.debug(f&quot;Payload: {payload}, Headers: {headers}&quot;)&#10;    response = requests.post(url, json=payload, headers=headers, verify=False)&#10;    logger.info(f&quot;POST request completed&quot;)&#10;    return response&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
