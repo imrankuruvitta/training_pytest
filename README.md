@@ -1,2 +1,2 @@
 # training_pytest
-this is ment for pyetst traing with api
+this is meant for pytest with api
