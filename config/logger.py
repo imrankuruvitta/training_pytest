@@ -11,7 +11,7 @@ log_file = os.path.join(LOGS_DIR, f"test_run_{datetime.now().strftime('%Y%m%d_%H
 
 # Configure logging
 logging.basicConfig(
-    level=logging.DEBUG,
+    level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
         logging.FileHandler(log_file),
