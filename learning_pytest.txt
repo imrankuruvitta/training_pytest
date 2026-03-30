@@ -1,0 +1,103 @@
+how pytest works:
+when "pytest" word typed and press enter in a directory, follwing will happen:
+it will goto pytest.ini file and read the configuration
+If no arguments are specified then collection starts from testpaths (if configured) or the current directory.
+Recurse into directories
+In those directories, search for "test_*.py" or ""*_test.py" files, imported by their test package name.
+"test" prefixed test functions or methods outside of class.
+"test" prefixed test functions or methods inside Test prefixed test classes (without an __init__ method).
+Methods decorated with @staticmethod and @classmethods are also considered.
+
+this is how pytest project structure should be
+api-automation/
+│
+├── tests/
+│
+├── utils/
+│
+├── config/
+│
+├── reports/report.html --self-contained-html → embedd css, js into the html file
+│
+├── conftest.py
+├── pytest.ini
+├── requirements.txt
+└── README.md
+
+ Running Tests (Commands Cheat Sheet)
+
+Command    Purpose
+pytest    Run all tests
+pytest -v    Verbose output like test name, test class, test file and test result
+pytest -q    Quiet mode
+pytest test_file.py    Run one file
+pytest test_file.py::test_name    Run one test
+pytest tests/    Run folder
+pytest -x    Stop on first failure
+pytest -s    print statements will be shown in the console
+
+skip → skip test
+skipif → skip if condition is true
+xfail → test runs, if failure not occur then it will be marked as xpassed,
+                   if failure occur then it will be marked as xfailed
+
+what is pytest?
+Pytest is a Python testing framework that supports simple syntax, powerful fixtures,
+and scalable automation for unit, API, and UI testing.
+
+What is a fixture?
+A fixture is a reusable function that provides test setup, data, or resources and
+is injected into tests by pytest
+
+Difference between fixture and function?
+A fixture supports dependency injection and lifecycle management,
+whereas a function must be called manually.
+
+Difference between yield and return in fixtures?
+return provides data only, whereas yield supports setup before and teardown after test execution.
+
+What are markers?
+Markers are labels used to group tests and selectively execute them (e.g., smoke, regression).
+
+Why register markers?
+To avoid warnings and to provide metadata for test categorization
+
+What is pytest.ini?
+It is a configuration file used to define pytest settings like markers, options, and test discovery rules.
+
+what is conftest.py?
+It is used to define shared fixtures and hooks that are automatically discovered by pytest.
+
+Difference between pytest.ini and conftest.py?
+pytest.ini contains configuration, while conftest.py contains fixtures.
+
+What is parametrization?
+Parametrization runs the same test multiple times with different input data.
+
+How do you parametrize a test?
+Using @pytest.mark.parametrize with input values and expected results.
+example:
+@pytest.mark.parametrize("input, expected", [(1, 2), (2, 3), (3, 4)])
+or
+@pytest.mark.parametrize("input", [1, 2, 3])
+or
+@pytest.fixture(params=[1, 2, 3])
+def my_fixture(request):
+    return request.param
+
+What is fixture scope?
+Fixture scope defines how often a fixture is created and destroyed during test execution.
+"Scopes include function, class, module, package, session."
+define fixture scope is function
+order are scope, dependency and auto-use
+
+How to generate an HTML report?
+Using pytest-html with --html=report.html --self-contained-html.
+
+How to pass fixtures to tests?
+By declaring the fixture name as a test function argument.
+
+Can a fixture call another fixture?
+Yes, fixtures can depend on other fixtures by accepting them as parameters.
+
+pytest -q --html=reports/report.html --self-contained-html

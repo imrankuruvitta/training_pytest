@@ -1,0 +1,22 @@
+2026-03-27 20:08:44,857 - config.config - DEBUG - Configuration loaded - BASE_URL: https://jsonplaceholder.typicode.com
+2026-03-27 20:08:45,518 - conftest - INFO - Initializing base_url fixture
+2026-03-27 20:08:45,518 - conftest - INFO - Base URL: https://jsonplaceholder.typicode.com
+2026-03-27 20:08:45,518 - conftest - INFO - Starting test: test_get_users
+2026-03-27 20:08:45,519 - test_users_api - INFO - Test: test_get_users - fetching a post from JSONPlaceholder
+2026-03-27 20:08:45,519 - test_users_api - DEBUG - URL: https://jsonplaceholder.typicode.com/posts/1
+2026-03-27 20:08:45,519 - utils.base_api - INFO - Sending GET request to: https://jsonplaceholder.typicode.com/posts/1
+2026-03-27 20:08:45,519 - utils.base_api - DEBUG - Headers: None, Params: None
+2026-03-27 20:08:45,522 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): jsonplaceholder.typicode.com:443
+2026-03-27 20:08:46,052 - urllib3.connectionpool - DEBUG - https://jsonplaceholder.typicode.com:443 "GET /posts/1 HTTP/1.1" 200 None
+2026-03-27 20:08:46,053 - utils.base_api - INFO - GET request completed
+2026-03-27 20:08:46,183 - conftest - INFO - Completed test: test_get_users
+2026-03-27 20:08:46,203 - conftest - INFO - Starting test: test_create_user
+2026-03-27 20:08:46,204 - test_users_api - INFO - Test: test_create_user - creating a new post
+2026-03-27 20:08:46,204 - test_users_api - DEBUG - URL: https://jsonplaceholder.typicode.com/posts
+2026-03-27 20:08:46,204 - test_users_api - INFO - Payload: {'title': 'foo', 'body': 'bar', 'userId': 1}
+2026-03-27 20:08:46,205 - utils.base_api - INFO - Sending POST request to: https://jsonplaceholder.typicode.com/posts
+2026-03-27 20:08:46,205 - utils.base_api - DEBUG - Payload: {'title': 'foo', 'body': 'bar', 'userId': 1}, Headers: None
+2026-03-27 20:08:46,205 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): jsonplaceholder.typicode.com:443
+2026-03-27 20:08:47,153 - urllib3.connectionpool - DEBUG - https://jsonplaceholder.typicode.com:443 "POST /posts HTTP/1.1" 201 65
+2026-03-27 20:08:47,153 - utils.base_api - INFO - POST request completed
+2026-03-27 20:08:47,156 - conftest - INFO - Completed test: test_create_user

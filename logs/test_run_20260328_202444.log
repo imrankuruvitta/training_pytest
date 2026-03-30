@@ -1,0 +1,16 @@
+2026-03-28 20:24:45 - conftest - INFO - Initializing base_url fixture
+2026-03-28 20:24:45 - conftest - INFO - Base URL: https://jsonplaceholder.typicode.com
+2026-03-28 20:24:45 - conftest - INFO - Starting test: test_get_users
+2026-03-28 20:24:45 - test_users_api - INFO - Test: test_get_users - fetching a post from JSONPlaceholder
+2026-03-28 20:24:45 - utils.base_api - INFO - Sending GET request to: https://jsonplaceholder.typicode.com/posts
+2026-03-28 20:24:45 - utils.base_api - INFO - GET request completed
+2026-03-28 20:24:45 - test_users_api - INFO - <class 'list'>
+2026-03-28 20:24:45 - conftest - INFO - Completed test: test_get_users
+2026-03-28 20:24:45 - conftest - INFO - Starting test: test_create_user
+2026-03-28 20:24:45 - test_users_api - INFO - Test: test_create_user - creating a new post
+2026-03-28 20:24:45 - test_users_api - INFO - Payload: {'title': 'foo', 'body': 'bar', 'userId': 1}
+2026-03-28 20:24:45 - utils.base_api - INFO - Sending POST request to: https://jsonplaceholder.typicode.com/posts
+2026-03-28 20:24:48 - utils.base_api - INFO - POST request completed
+2026-03-28 20:24:48 - conftest - INFO - Completed test: test_create_user
+2026-03-28 20:24:48 - conftest - INFO - Starting test: test_foo_not_implemented
+2026-03-28 20:24:48 - conftest - INFO - Completed test: test_foo_not_implemented

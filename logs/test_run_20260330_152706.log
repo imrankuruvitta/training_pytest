@@ -1,0 +1,37 @@
+2026-03-30 15:27:06 - conftest - INFO - Initializing base_url fixture
+2026-03-30 15:27:06 - conftest - INFO - Base URL: https://jsonplaceholder.typicode.com, 1
+2026-03-30 15:27:06 - conftest - INFO - Starting test: test_get_users[1]
+2026-03-30 15:27:06 - test_users_api - INFO - Test: test_get_users - fetching a post from JSONPlaceholder
+2026-03-30 15:27:06 - utils.base_api - INFO - Sending GET request to: https://jsonplaceholder.typicode.com/posts
+2026-03-30 15:27:07 - utils.base_api - INFO - GET request completed
+2026-03-30 15:27:07 - test_users_api - INFO - <class 'list'>
+2026-03-30 15:27:07 - test_users_api - INFO - test_get_users passed all assertions
+2026-03-30 15:27:07 - conftest - INFO - Completed test: test_get_users[1]
+2026-03-30 15:27:07 - conftest - INFO - Starting test: test_create_user[1]
+2026-03-30 15:27:07 - test_users_api - INFO - Test: test_create_user - creating a new post
+2026-03-30 15:27:07 - test_users_api - INFO - Payload: {'title': 'foo', 'body': 'bar', 'userId': 1}
+2026-03-30 15:27:07 - utils.base_api - INFO - Sending POST request to: https://jsonplaceholder.typicode.com/posts
+2026-03-30 15:27:08 - utils.base_api - INFO - POST request completed
+2026-03-30 15:27:08 - test_users_api - INFO - test_create_user passed all assertions
+2026-03-30 15:27:08 - conftest - INFO - Completed test: test_create_user[1]
+2026-03-30 15:27:08 - conftest - INFO - Initializing base_url fixture
+2026-03-30 15:27:08 - conftest - INFO - Base URL: https://jsonplaceholder.typicode.com, 2
+2026-03-30 15:27:08 - conftest - INFO - Starting test: test_get_users[2]
+2026-03-30 15:27:08 - test_users_api - INFO - Test: test_get_users - fetching a post from JSONPlaceholder
+2026-03-30 15:27:08 - utils.base_api - INFO - Sending GET request to: https://jsonplaceholder.typicode.com/posts
+2026-03-30 15:27:08 - utils.base_api - INFO - GET request completed
+2026-03-30 15:27:08 - test_users_api - INFO - <class 'list'>
+2026-03-30 15:27:08 - test_users_api - INFO - test_get_users passed all assertions
+2026-03-30 15:27:08 - conftest - INFO - Completed test: test_get_users[2]
+2026-03-30 15:27:08 - conftest - INFO - Starting test: test_create_user[2]
+2026-03-30 15:27:08 - test_users_api - INFO - Test: test_create_user - creating a new post
+2026-03-30 15:27:08 - test_users_api - INFO - Payload: {'title': 'foo', 'body': 'bar', 'userId': 1}
+2026-03-30 15:27:08 - utils.base_api - INFO - Sending POST request to: https://jsonplaceholder.typicode.com/posts
+2026-03-30 15:27:08 - utils.base_api - INFO - POST request completed
+2026-03-30 15:27:08 - test_users_api - INFO - test_create_user passed all assertions
+2026-03-30 15:27:08 - conftest - INFO - Completed test: test_create_user[2]
+2026-03-30 15:27:08 - conftest - INFO - Starting test: test_foo_not_implemented
+2026-03-30 15:27:08 - test_users_api - INFO - ['this is purely for pytest raises', NotImplementedError(), <class 'NotImplementedError'>]
+2026-03-30 15:27:08 - conftest - INFO - Completed test: test_foo_not_implemented
+2026-03-30 15:27:08 - conftest - INFO - Starting test: testxfail
+2026-03-30 15:27:08 - conftest - INFO - Completed test: testxfail

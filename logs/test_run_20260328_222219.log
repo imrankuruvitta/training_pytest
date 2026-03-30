@@ -1,0 +1,3 @@
+2026-03-28 22:22:20 - conftest - INFO - Starting test: test_foo_not_implemented
+2026-03-28 22:22:20 - test_users_api - INFO - ['this is purely for pytest raises', NotImplementedError(), <class 'NotImplementedError'>]
+2026-03-28 22:22:20 - conftest - INFO - Completed test: test_foo_not_implemented
